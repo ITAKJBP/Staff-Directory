@@ -458,6 +458,53 @@ footer{text-align:center; color:var(--muted); font-size:12px; padding:30px 20px 
   .tab:hover .tab-popup{transform:translate(0,0) scale(1);}
   .tab-popup::after{left:24px;}
 }
+  css
+/* ================= XBR GREEN BUTTON (pop + blink) ================= */
+.xbr-btn{
+  display:inline-flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:4px;
+  padding:14px 34px;
+  min-width:230px;
+  background:#009879;
+  color:#fff;
+  text-decoration:none;
+  font-family:Arial, sans-serif;
+  border-radius:8px;
+  text-align:center;
+  box-shadow:0 4px 6px rgba(0,0,0,0.1);
+  animation:xbrPop 1.4s ease-in-out infinite, xbrBlink 1.4s ease-in-out infinite;
+  transition:background .3s ease;
+}
+.xbr-btn:hover{
+  background:#007a61;
+  animation-play-state:paused;
+  transform:scale(1.08);
+}
+.xbr-title{
+  font-size:18px;
+  font-weight:800;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  width:100%;
+  text-align:center;
+}
+.xbr-sub{
+  font-size:15px;
+  font-weight:700;
+  width:100%;
+  text-align:center;
+}
+@keyframes xbrPop{
+  0%,100%{ transform:scale(1); }
+  50%{ transform:scale(1.07); }
+}
+@keyframes xbrBlink{
+  0%,100%{ opacity:1; box-shadow:0 0 0 0 rgba(0,152,121,0.65); }
+  50%{ opacity:.78; box-shadow:0 0 0 14px rgba(0,152,121,0); }
+}
 </style>
 </head>
 <body>
@@ -600,21 +647,10 @@ footer{text-align:center; color:var(--muted); font-size:12px; padding:30px 20px 
     </div>
   </div>
   <div class="count-line" id="countLine"></div>
-  <div style="text-align:center; margin:40px 0 10px;">
-    <a href="XBR.html" style="
-        display: inline-block;
-        padding: 12px 24px;
-        background-color: #009879;
-        color: white;
-        text-decoration: none;
-        font-family: Arial, sans-serif;
-        font-size: 16px;
-        font-weight: bold;
-        border-radius: 5px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        transition: background 0.3s ease;
-    " onmouseover="this.style.backgroundColor='#007a61'" onmouseout="this.style.backgroundColor='#009879'">
-        📊 Data Of BR & DR
+   <div style="text-align:center; margin:40px 0 10px;">
+    <a href="XBR.html" class="xbr-btn">
+      <span class="xbr-title">XBR SECTION</span>
+      <span class="xbr-sub">📊 Data Of BR &amp; DR</span>
     </a>
   </div>
 
